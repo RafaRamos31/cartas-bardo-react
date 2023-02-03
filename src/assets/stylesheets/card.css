@@ -1,0 +1,110 @@
+[property="COMMON"]  {
+    --card-bg: linear-gradient(48deg, rgba(131,207,148,1) 6%, rgba(161,245,180,1) 33%, rgba(131,207,148,1) 47%, rgba(161,245,180,1) 65%, rgba(131,207,148,1) 100%);
+    --card-panel: #52c56e;
+    --card-border: rgba(24, 156, 35)
+}
+
+[property="RARE"]  {
+    --card-bg: linear-gradient(48deg, rgba(179,63,251,1) 6%, rgba(136,28,203,1) 33%, rgba(179,63,251,1) 47%, rgba(136,28,203,1) 65%, rgba(179,63,251,1) 100%);
+    --card-panel: #b86bff;
+    --card-border: rgb(80, 13, 156);
+}
+
+[property="EPIC"]  {
+    --card-bg: linear-gradient(48deg, rgba(229,147,147,1) 6%, rgba(255,78,78,1) 33%, rgba(229,147,147,1) 47%, rgba(255,78,78,1) 65%, rgba(229,147,147,1) 100%);
+    --card-panel: #cf4c4c;
+    --card-border: rgb(134, 13, 13);
+}
+
+[property="LEGENDARY"]  {
+    --card-bg: linear-gradient(48deg, rgba(147,183,229,1) 6%, rgba(71,137,220,1) 33%, rgba(147,183,229,1) 47%, rgba(71,137,220,1) 65%, rgba(147,183,229,1) 100%);
+    --card-panel: #4c7acf;
+    --card-border: rgb(17, 44, 134);
+}
+
+[property="UNIQUE"]  {
+    --card-bg: radial-gradient(circle, rgba(168,245,231,1) 0%, rgba(255,255,255,1) 50%, rgba(168,245,231,1) 100%);
+    --card-panel: #81ffe8;
+    --card-border: rgb(100, 190, 250);
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20rem;
+    height: 30rem;
+    border: 4px solid var(--card-border);
+    border-radius: 30px;
+    background: var(--card-bg);
+}
+
+.title{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: larger;
+    height: 17%;
+    width: 95%;
+    margin: 3%;
+    border-radius: 20px;
+    background: var(--card-panel);
+}
+
+.imageContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+    width: 90%;
+    margin: 5%;
+    
+}
+
+.cardImage{
+    width: 80%;
+    height: 100%;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.363);
+    object-fit: cover;
+}
+
+.attributes{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: larger;
+    height: 30%;
+    width: 95%;
+    margin: 3%;
+    border-radius: 20px;
+    background: var(--card-panel);
+}
+
+.iconContainer{
+    margin-bottom: -100%;
+    width: 20%;
+    height: 20%;
+}
+
+.iconContainer img{
+    max-width:100%;
+    max-height:100%;
+    object-fit: contain;
+}
+
+.cardBody:hover{
+    cursor: pointer;
+    transition: 0.3s ease;
+    transform: scale(1.1)
+}
+
+
+

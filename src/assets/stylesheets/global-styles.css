@@ -1,0 +1,55 @@
+/*Global Styles*/
+:root {
+    /*Tema claro*/
+    /*Objetos*/
+    --bg-color: #CDD1DE;
+    --nav-color: #13293D;
+    --footer-color: #8D99AE;
+    --panel-color: #8D99AE;
+    --inner-panel-color: #2A628F;
+    --button-color: #D80032;
+    --button-hover-color: #A70027;
+    --tab-color: #13293D;
+    --disabled-color: #CDD1DE;
+    --bg-toggle: white;
+    /*Texto*/
+    --font-nav: white;
+    --font-nav-hover: #2A628F;
+    --font-title: #13293D;
+    --font-panel: white;
+    --font-footer: white;
+    --font-button: white;
+    --font-toggle: black;
+}
+
+[data-theme="dark"]  {
+    /*Tema oscuro*/
+    /*Objetos*/
+    --bg-color: #061720;
+    --nav-color: #13293D;
+    --footer-color: #16324F;
+    --panel-color: #2e3e4b;
+    --inner-panel-color: #13293D;
+    --button-color: #D80032;
+    --button-hover-color: #A70027;
+    --tab-color: #13293D;
+    --disabled-color: #CDD1DE;
+    --bg-toggle: blueviolet;
+    /*Texto*/
+    --font-nav: white;
+    --font-nav-hover: #2A628F;
+    --font-title: white;
+    --font-panel: white;
+    --font-footer: white;
+    --font-button: white;
+    --font-toggle: white;
+}
+
+body {
+    background-color: var(--bg-color);
+    transition:  0.2s ease-in;
+}
+
+.modal-open{
+    padding-right: 0;
+}

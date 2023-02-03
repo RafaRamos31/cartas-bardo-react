@@ -1,0 +1,97 @@
+@import url("./global-styles.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+
+/* Var names
+
+Objetos
+--bg-color;
+--nav-color;
+--footer-color;
+--panel-color;
+--inner-panel-color;
+--button-color;
+--button-hover-color;
+--tab-color;
+--disabled-color;
+
+Texto
+--font-nav;
+--font-nav-hover;
+--font-title;
+--font-panel;
+--font-footer;
+--font-button;
+*/
+
+h1 {
+  color: var(--font-title);
+  margin-bottom: 30px;
+}
+
+.form-container {
+  background-color: var(--panel-color);
+  width: 90%;
+  padding: 40px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+form label {
+  color: var(--font-panel);
+}
+
+input, button[type="submit"]{
+  font-size: larger;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.icon {
+  color: var(--font-panel);
+  margin-left: 10px;
+}
+
+.foot-message{
+  background-color: var(--inner-panel-color);
+  color: var(--font-panel);
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+p{
+  text-align: center;
+}
+
+.command-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.command-container span{
+  background-color: white;
+  color: #C93ECC;
+  font-size: larger;
+  font-weight: bold;
+  padding: 5px;
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.command-container button{
+  font-size: 25px;
+}
+
+.command-container button i{
+  color: black;
+}
+
+
+@media screen and (min-width:700px) {
+  .form-container {
+    width: 500px;
+  }
+}

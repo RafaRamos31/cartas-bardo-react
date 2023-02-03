@@ -1,0 +1,35 @@
+@import url("./global-styles.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+
+/* Var names
+
+Objetos
+--bg-color;
+--nav-color;
+--footer-color;
+--panel-color;
+--inner-panel-color;
+--button-color;
+--button-hover-color;
+--tab-color;
+--disabled-color;
+--bg-toggle;
+
+Texto
+--font-nav;
+--font-nav-hover;
+--font-title;
+--font-panel;
+--font-footer;
+--font-button;
+--font-toggle;
+*/
+
+.toggler{
+  background-color: var(--bg-toggle);
+  border-radius: 10px;
+}
+
+button i{
+  color: var(--font-toggle);
+}

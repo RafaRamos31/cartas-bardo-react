@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    align-items: center;
+    font-size: larger;
+    flex: 30%;
+    width: 50%;
+    height: 50%;
+}
+
+.container .icon{
+    max-width: 70%;
+    max-height: 70%;
+}
+
+.game, .time{
+    flex: 70%;
+    justify-content: right;
+}
+
+.circle{
+    border: 1px solid black;
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.container p{
+    margin-bottom: 0;
+}

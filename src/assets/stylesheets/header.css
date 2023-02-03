@@ -1,0 +1,54 @@
+@import url("./global-styles.css");
+
+/* Var names
+
+Objetos
+--bg-color;
+--nav-color;
+--footer-color;
+--panel-color;
+--inner-panel-color;
+--button-color;
+--button-hover-color;
+--tab-color;
+--disabled-color;
+
+Texto
+--font-nav;
+--font-nav-hover;
+--font-title;
+--font-panel;
+--font-footer;
+--font-button;
+*/
+
+.app-nav{
+    background-color: var(--nav-color);
+}
+
+.navbar-collapse {
+    align-items: center;
+    justify-content: end;
+}
+
+.navbar-toggler{
+    background-color: #CDD1DE;
+}
+
+.toggle span{
+    padding-left: 10px;
+    color: var(--font-nav);
+}
+
+.link{
+    text-decoration: none;
+    margin: 0 8px;
+    color: var(--font-nav);
+    font-weight: bold;
+}
+
+.link:hover{
+    color: blueviolet;
+    transition: 0.3s;
+}
+
