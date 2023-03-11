@@ -25,8 +25,8 @@ const client = new ApolloClient({
     headers: {
       authorization: getAuth()
     },
-    //uri: GRAPHQL_SERVER
-    uri: "http://localhost:4000/graphql",
+    uri: GRAPHQL_SERVER
+    //uri: "http://localhost:4000/graphql",
   }),
 });
 
