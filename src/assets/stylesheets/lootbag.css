@@ -1,0 +1,80 @@
+[property="XS"]  {
+    --size-bg: rgb(139, 98, 44);
+}
+
+[property="S"]  {
+    --size-bg: rgb(128, 128, 128);
+}
+
+[property="M"]  {
+    --size-bg: rgb(247, 226, 43);
+}
+
+[property="L"]  {
+    --size-bg: rgb(44, 212, 134);
+}
+
+[property="XL"]  {
+    --size-bg: rgb(163, 32, 214);
+}
+
+[property="XXL"]  {
+    --size-bg: rgb(243, 60, 36);
+}
+
+.loot-body{
+    width: 100%;
+}
+
+.loot-container{
+    text-align: center;
+    width: 100%;
+}
+
+.main-orb{
+    border-radius: 100%;
+    border: 3px solid black;
+    padding: 1rem;
+    font-size: 5rem;
+    text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
+    color: white;
+    width: 3rem;
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+}
+
+.upper-icons{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.circle{
+    border: 1px solid black;
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 100%;
+    object-fit: cover;
+    text-align: center;
+}
+
+.size-icon{
+    background-color: var(--size-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fixed-cards-row{
+    display: flex;
+    justify-content: center;
+    column-gap: 0.5rem;
+    flex-wrap: nowrap;
+    margin-top: 0.5rem;
+}
+
+.rarity-icon{
+    max-height: 2rem;
+}

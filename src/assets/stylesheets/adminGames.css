@@ -1,0 +1,17 @@
+.gamesPanel {
+  background-color: var(--panel-color);
+  border-radius: 20px;
+  margin: 1% 8%;
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gamesContainer{
+  display: grid;
+}
+
+.main{
+  display: block;
+}

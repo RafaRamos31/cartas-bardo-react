@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+
 import { ApolloClient, InMemoryCache, HttpLink, ApolloProvider } from "@apollo/client";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,6 +16,8 @@ const getAuth = () => {
   return token ? `bearer ${token}` : null
 }
 
+// eslint-disable-next-line
+const GRAPHQL_SERVER = process.env.REACT_APP_BACKEND_URL + '/graphql'
 const client = new ApolloClient({
   connectToDevTools: true,
   cache: new InMemoryCache(),
@@ -22,8 +25,8 @@ const client = new ApolloClient({
     headers: {
       authorization: getAuth()
     },
-    uri: 'https://donbardocardsbackend-production.up.railway.app/graphql'
-    //uri: "http://localhost:4000/graphql",
+    //uri: GRAPHQL_SERVER
+    uri: "http://localhost:4000/graphql",
   }),
 });
 

@@ -1,0 +1,30 @@
+.frame{
+    background-color: var(--panel-color);
+    border: 3px solid black;
+    color: var(--font-title);
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1rem;
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 350px;
+    width: 220px;
+}
+
+.prices{
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+    column-gap: 1.5rem;
+    width: 100%;
+    background-color: var(--tab-color);
+    color: var(--font-panel);
+    border-radius: 1rem;
+}
+
+.price-icon{
+    max-height: 2rem;
+}

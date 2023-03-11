@@ -3,16 +3,16 @@ import Card from "../../components/Card";
 import { useEffect, useState } from "react";
 import { GameType } from "../../types/schemaTypes";
 import { useMutation, useQuery } from "@apollo/client";
-import { ALL_GAMES, GET_DEFAULT_GAME } from "../../graphQL/queries";
-import { CREATE_CARD } from "../../graphQL/mutations";
+import { ALL_GAMES, CARD_BY_ID, GET_DEFAULT_GAME } from "../../graphQL/queries";
+import { UPDATE_CARD } from "../../graphQL/mutations";
 import { Toast, ToastContainer } from "react-bootstrap";
 import InfoHover from "../../components/InfoHover";
 import AdminHeader from "../../components/AdminHeader";
+import { useParams } from "react-router-dom";
 
-function CreateCard(): JSX.Element {
+function UpdateCard(): JSX.Element {
 
-  
-
+  const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [imageURL, setImage] = useState("");
   const [description, setDescription] = useState("");
@@ -81,15 +81,6 @@ function CreateCard(): JSX.Element {
     }
   };
 
-  useEffect(() => {
-    setIsLimited(isLimited);
-    if (isLimited) {
-      setLimited({ existences });
-    } else {
-      setLimited(undefined);
-    }
-  }, [isLimited, existences])
-
   const updateEffect = (change: string, value: number) => {
     if (isNaN(value)) value = 0;
     switch (change) {
@@ -110,7 +101,7 @@ function CreateCard(): JSX.Element {
         break;
       }
     }
-  };  
+  };
 
   const updateTime = (change: string, value: number) => {
     if (isNaN(value)) value = 0;
@@ -175,7 +166,7 @@ function CreateCard(): JSX.Element {
   const [showMessage, setShowMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const [createCard, result] = useMutation(CREATE_CARD);
+  const [updateCard, result] = useMutation(UPDATE_CARD);
 
   useEffect(() => {
     if (result.data) {
@@ -185,10 +176,11 @@ function CreateCard(): JSX.Element {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    createCard({
+    updateCard({
       variables: {
+        cardId: id,
         name: cardData.name,
-        imageURL: cardData.imageURL.length > 0 ? cardData.imageURL : null,
+        imageUrl: cardData.imageURL.length > 0 ? cardData.imageURL : null,
         description: cardData.description.length > 0 ? cardData.description : null,
         rarity: cardData.rarity,
         fragments: cardData.fragments > 0 ? cardData.fragments : undefined,
@@ -206,6 +198,63 @@ function CreateCard(): JSX.Element {
   };
 
   const status = useQuery(GET_DEFAULT_GAME)
+
+  const { cardId } = useParams();
+  const query = useQuery(CARD_BY_ID, {variables:{cardId}});
+
+  useEffect(() => {
+    if(!query.loading){
+      if(!query.data){
+        window.location.href = "/admin/cards/not_found";
+      }
+      else{
+        const dbCard = query.data.getCardById
+        setId(dbCard.id)
+        setName(dbCard.name)
+        setRarity(dbCard.rarity)
+        setFragments(dbCard.fragments)
+        setGame(dbCard.game)
+        setCommand(dbCard.command)
+        if(dbCard.imageURL) setImage(dbCard.imageURL)
+        if(dbCard.description) setDescription(dbCard.description)
+        setHasTimeEffect(dbCard.secondsEffect !== null)
+        setSecondsEffect(dbCard.secondsEffect)
+        if(dbCard.secondsEffect){
+          let total = dbCard.secondsEffect
+          let days = Math.floor(total / 86400)
+          total = total - (86400 * days)
+          let hours = Math.floor(total / 3600)
+          total = total - (3600 * hours)
+          let minutes = Math.floor(total / 60)
+          total = total - (60 * minutes)
+          setEffectDays(days)
+          setEffectHours(hours)
+          setEffectMinutes(minutes)
+          setEffectSeconds(total)
+        }
+        setStackable(dbCard.stackable)
+        if(dbCard.limited){
+          setIsLimited(dbCard.limited !== null)
+          setExistences(dbCard.limited.existences)
+        }
+        setHasCooldown(dbCard.cooldown !== null)
+        setCooldown(dbCard.cooldown)
+        if(dbCard.cooldown && dbCard.cooldown.secondsCooldown){
+          let total = dbCard.cooldown.secondsCooldown
+          let days = Math.floor(total / 86400)
+          total = total - (86400 * days)
+          let hours = Math.floor(total / 3600)
+          total = total - (3600 * hours)
+          let minutes = Math.floor(total / 60)
+          total = total - (60 * minutes)
+          setDays(days)
+          setHours(hours)
+          setMinutes(minutes)
+          setSeconds(total)
+        }
+      }
+    }
+  }, [query])
 
   return (
     <>
@@ -247,7 +296,7 @@ function CreateCard(): JSX.Element {
         </Toast>
       </ToastContainer>
       <h1 className="text-uppercase font-weight-bold text-center mt-4">
-        Creador de Cartas
+        Modificar Carta
       </h1>
       <div className="creatorContainer">
         <div className="column">
@@ -321,7 +370,7 @@ function CreateCard(): JSX.Element {
         </div>
         <div className="column card-column">
           <Card data={cardData} />
-          <input type="submit" onClick={handleSubmit} value="CREAR CARTA" />
+          <input type="submit" onClick={handleSubmit} value="MODIFICAR" />
         </div>
         <div className="column">
         <div className="optional-config">
@@ -481,4 +530,4 @@ function CreateCard(): JSX.Element {
   );
 }
 
-export default CreateCard;
+export default UpdateCard;

@@ -1,0 +1,18 @@
+.options-tab{
+    margin-top: 7%;
+}
+
+.icon{
+    font-size: 2.5rem;
+}
+
+.toggler{
+    width: 100%;
+    border: 0;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

@@ -1,0 +1,11 @@
+.circle{
+    border: 1px solid black;
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.container{
+    display: block;
+}
